@@ -33,13 +33,13 @@ function conection(status) {
   switch(status){
     case 1:
       estado = "Online";
-      break
+      break;
     case 2:
       estado ="Away";
-      break
-    case 3:
-      estado = "Offline";
       break;
+    default:
+      estado = "Offline";
+
   }
   return estado;
 }
@@ -140,13 +140,13 @@ function fizzBuzz(numero) {
   // De lo contrario, devuelve el numero
   cadena = numero;
   if(numero % 3 == 0 ){
-    cadena == "fizz";
+    cadena = "fizz";
   }
   if(numero % 5 == 0 ){
-    cadena == "buzz";
+    cadena = "buzz";
   }
   if(numero % 3 == 0 && numero % 5 == 0){
-    cadena == "fizzbuzz";
+    cadena = "fizzbuzz";
   }
   return cadena;
 }
@@ -167,13 +167,15 @@ function operadoresLogicos(num1, num2, num3) {
     valor = "Hay negativos";
   }
 
+  if(num3 > num1 && num3 > num2){
+    valor = num3 + 1 ;
+  }
+
+
   if(num1 == 0 || num2 == 0 || num3 == 0){
     valor = "Error";
   }
 
-  if(num3 > num1 && num3 > num2){
-    valor = num3 + 1 ;
-  }
 
   return valor;
 }
@@ -184,13 +186,23 @@ function esPrimo(numero) {
   // Pista: un número primo solo es divisible por sí mismo y por 1
   // Pista 2: Puedes resolverlo usando un bucle `for`
   // Nota: Los números 0 y 1 NO son considerados números primos
-  primo = true;
-  for(i = 2 ;  i < numero ; i++){
-    if(i%numero == 0){
-      primo = false;
-    }
+  //primo = true;
+  buleano = true
+
+  if(numero == 0 || numero == 1){
+    buleano =  false
   }
-  return primo;
+
+  for(let i = 2 ;  i < numero ; i++){
+    valor = numero % i
+    if(valor == 0){
+      buleano =  false;
+    }
+
+  }
+
+
+  return buleano;
 }
 
 function esVerdadero(valor){
@@ -209,7 +221,7 @@ function tablaDelSeis(){
   //La función devuelve un array con los resultados de la tabla de multiplicar del 6 en orden creciente.
   //Escribe tu código aquí   
   arreglo = [];
-  for (i = 0 ; i <= 60 ; i++){
+  for (let i = 0 ; i <= 10 ; i++){
     arreglo.push(6*i);
   }
   return arreglo;
@@ -219,7 +231,7 @@ function tieneTresDigitos(numero){
   //Leer un número entero y retornar true si tiene 3 dígitos. Caso contrario, retorna false.
   //Escribe tu código aquí
   valor = false;
-  if(numero < -99 || numero > 99){
+  if(numero.toString().length == 3 ){
     valor = true;
   }
   return valor;
@@ -231,11 +243,12 @@ function doWhile(numero) {
   //Implementar una función tal que vaya aumentando el valor recibido en 5 hasta un límite de 8 veces
   //Retornar el valor final.
   //Usar el bucle do ... while.
-  let i = 0 ;
+  i = 0
   do{
-    numero += 5;
+    numero += 5
+    i++
   }while(i < 8)
-  return numero;
+  return numero
 }
 
 
